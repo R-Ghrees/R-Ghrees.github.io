@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kritika & Kávé — Kezdő</title>
+  <meta name="description" content="Haveros kritikák filmről, kajáról és játékokról — plusz egy chill Kávé Sarok." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">K</span>
+        <span>Kritika &amp; Kávé</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html">Kezdő</a>
+        <a href="kritikak.html">Kritikák</a>
+        <a href="kave.html">Kávé sarok</a>
+        <a href="kapcsolat.html">Kapcsolat</a>
+        <a href="index.html#about">Rólunk</a>
+
+      </nav>
+
+      <div class="row">
+        <button class="btn ghost menuBtn" id="menuBtn" type="button" aria-label="Menü">☰</button>
+        <a class="btn" href="kritikak.html">Új kritikák</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero__grid">
+
+        <div class="card heroCard">
+          <span class="kicker"><span class="dot"></span> film • étel • játék • haveros vélemény</span>
+          <h1>Kritikák, amik nem játsszák meg magukat.</h1>
+          <p class="lead">
+  Ketten írjuk: <b>két fiatal srác</b>, akik imádnak játszani, filmeket/sorozatokat nézni,
+  meg <b>nagyokat kajálni</b> akár mozi előtt, akár csak random, ha úgy esik jól.
+  A jó <b>kávé</b> nálunk alap, a véleményünk meg általában nem marad csendben. ☕
+  <br><br>
+  Szeretjük <b>megvitatni egymással</b>, hogy mi miért volt jó (vagy miért nem), és kellett egy hely,
+  ahol ezeket <b>össze tudjuk gyűjteni</b> egyben. Mivel közben <b>programozást tanulunk</b>,
+  logikus volt, hogy ne egy jegyzet legyen belőle, hanem egy <b>saját weboldal</b>.
+</p>
+
+
+          <div class="ctaRow">
+            <a class="btn" href="kritikak.html">Mutasd a kritikákat</a>
+            <a class="btn ghost" href="kave.html">Irány a Kávé Sarok</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>Film</b><span>story + vibe + „megéri?”</span></div>
+            <div class="stat"><b>Étel</b><span>ár/érték + íz + élmény</span></div>
+            <div class="stat"><b>Játék</b><span>gameplay + grind + fun</span></div>
+          </div>
+        </div>
+
+        <aside class="card sideCard">
+  <div class="sideTop">
+    <div>
+      <div class="muted">A hét kedvence</div>
+      <div id="weekTitle" style="font-weight:850; font-size:1.15rem; margin-top:4px;">Heti menetrend</div>
+      <div id="weekSub" class="muted" style="margin-top:6px;">Mi várható ezen a héten?</div>
+    </div>
+    <span class="chip" id="weekChip">W--</span>
+  </div>
+
+  <!-- Heti várható lista -->
+  <div class="card miniCard" style="margin-top:14px;">
+    <div class="muted" style="margin-bottom:8px;">Várható</div>
+    <ul class="weekList" id="weekList">
+      <!-- JS tölti -->
+    </ul>
+  </div>
+
+  <!-- Lapozható rövid hírek -->
+  <div class="card miniCard" style="margin-top:12px;">
+    <div class="row" style="justify-content:space-between;">
+      <div class="muted">Rövid hírek</div>
+      <div class="muted"><span id="newsCount">0</span></div>
+    </div>
+
+    <div class="newsViewport" style="margin-top:10px;">
+      <div class="newsSlide" id="newsSlide">
+        <!-- JS tölti -->
+      </div>
+    </div>
+
+    <div class="newsNav" style="margin-top:10px;">
+      <button class="pill" id="newsPrev" type="button">←</button>
+      <div class="newsDots" id="newsDots"></div>
+      <button class="pill" id="newsNext" type="button">→</button>
+    </div>
+  </div>
+
+  
+
+  <div class="row" style="justify-content:space-between; margin-top:14px;">
+    <span class="muted">Gyors ugrás:</span>
+    <span class="badge">Film • Étel • Játék</span>
+  </div>
+</aside>
+
+
+      </div>
+    </section>
+
+    <section>
+      <div class="sectionTitle">
+        <h2>Rólunk</h2>
+        <p>kik vagyunk és miért csináljuk</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card miniCard">
+          <h3>Mi ez?</h3>
+          <p>Haveros kritika-blog: nem szakértős, csak őszinte. Amit néztünk/ettünk/játszottunk, leírjuk.</p>
+        </div>
+        <div class="card miniCard">
+          <h3>Mit találsz itt?</h3>
+          <p>Három fő kategória + külön Kávé Sarok a chill résznek.</p>
+          <div class="badgeRow">
+            <a class="badge" href="kritikak.html?cat=film">Film kritikák</a>
+            <a class="badge" href="kritikak.html?cat=food">Étel kritikák</a>
+            <a class="badge" href="kritikak.html?cat=game">Játék kritikák</a>
+          </div>
+        </div>
+        <div class="card miniCard">
+          <h3>Kávé Sarok</h3>
+          <p>Receptek, ajánlók, playlist a “nyugi” rész.</p>
+          <div class="badgeRow">
+            <a class="badge" href="kave.html">Beülök</a>
+          </div>
+        </div>
+      </div>
+    </section>
+<section id="about">
+  <div class="sectionTitle">
+    <h2>Röviden</h2>
+    <p>két haver • három kategória • nulla mellébeszélés</p>
+  </div>
+
+  <div class="grid2">
+    <!-- ÁDÁM -->
+    <div class="card miniCard">
+      <h3>Ádám — a hangulatkereső + kaja-detektív</h3>
+      <p class="muted">
+        Ha valami “oké”, ő kiszagolja. Ha valami tényleg jó, ő előbb érzi, mint a menü.
+      </p>
+
+      <div class="badgeRow">
+        <span class="badge">Étel: speciális szakértő</span>
+        <span class="badge">Film: vibe-vadász</span>
+        <span class="badge">Játék: komfort gamer</span>
+      </div>
+
+      <div class="badgeRow" style="margin-top:10px;">
+        <span class="badge">🍔 Étel: szósz, adag, ár/érték — nincs kegyelem</span>
+        <span class="badge">🎬 Film: “kapjon el” — 10 perc után ítélet</span>
+        <span class="badge">🎮 Játék: nehéz nap után jöhet a “nem bánt” kategória</span>
+      </div>
+    </div>
+
+    <!-- GHRIS -->
+    <div class="card miniCard">
+      <h3>Ghris a kultúr-helyismerő + story-boncoló</h3>
+      <p class="muted">
+        Ha van egy jó hely, ő már el is adta neked fejben. Filmben meg a “miért” érdekli, nem a csillogás.
+      </p>
+
+      <div class="badgeRow">
+        <span class="badge">Étel: helyismerő &amp; “értékesítő” 😄</span>
+        <span class="badge">Film: mélyebb történet-kereső</span>
+        <span class="badge">Játék: idegbaj-fokozat</span>
+      </div>
+
+      <div class="badgeRow" style="margin-top:10px;">
+        <span class="badge">☕ Étel/hely: hangulat + “itt jó embernek lenni” faktor</span>
+        <span class="badge">📖 Film: karakterek, dráma, rejtett részletek itt a lényeg</span>
+        <span class="badge">🔥 Játék: minél nagyobb agyzsibbasztás, annál jobb</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card miniCard" style="margin-top:12px;">
+    <h3>Hogy írjuk a kritikát?</h3>
+    <p class="muted">
+      1 mondat verdict → pont → 3 rövid bullet (mi tetszett / mi nem / kinek ajánljuk).
+      Aztán mehet a Kávé Sarok, mert anélkül nincs lezárás. ☕
+    </p>
+  </div>
+</section>
+
+    <footer class="footer">
+      <div class="hr"></div>
+      <div class="row" style="justify-content:space-between;">
+        <span>© <span id="year"></span> Kritika &amp; Kávé</span>
+        <span class="muted">Made with caffeine ☕</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
+</body>
+</html>
