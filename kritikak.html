@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kritika & Kávé — Kritikák</title>
+  <meta name="description" content="Film, étel és játék kritikák — haveros, őszinte." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">K</span>
+        <span>Kritika &amp; Kávé</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html">Kezdő</a>
+        <a href="kritikak.html">Kritikák</a>
+        <a href="kave.html">Kávé sarok</a>
+        <a href="kapcsolat.html">Kapcsolat</a>
+      </nav>
+
+      <div class="row">
+        <button class="btn ghost menuBtn" id="menuBtn" type="button" aria-label="Menü">☰</button>
+        <a class="btn" href="kave.html">Kávé Sarok</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section>
+      <div class="sectionTitle">
+        <h2>Kritikák</h2>
+        <p>szűrj kategóriára és válogass</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Kritika szűrők">
+        <button class="pill active" data-filter="all" type="button">Összes</button>
+        <button class="pill" data-filter="film" type="button">Film</button>
+        <button class="pill" data-filter="food" type="button">Étel</button>
+        <button class="pill" data-filter="game" type="button">Játék</button>
+      </div>
+
+      <div class="grid2">
+  <!-- FOOD (1. kritika) -->
+  <article class="card miniCard review clickable" data-cat="food"
+         onclick="location.href='Étel Kritika/kritika-001.html'">
+  <div class="reviewTop">
+    <div>
+      <div class="reviewName">Kaja / hely — (1. kritika)</div>
+      <div class="reviewMeta">Íz: 7/10 • Ár/érték: 8/10 • Hely: 10/10</div>
+    </div>
+    <span class="rating">7.0 <small>/10</small></span>
+  </div>
+
+  <p class="muted">
+    Mindenképp megéri kipróbálni — nagyon jó ízvilág, és a hely hangulata is top.
+  </p>
+
+  <div class="badgeRow">
+    <span class="badge">Íz: 7/10</span>
+    <span class="badge">Ár/érték: 8/10</span>
+    <span class="badge">Hely: 10/10</span>
+    <span class="badge">Össz: 7/10</span>
+  </div>
+</article>
+
+<article class="card miniCard review clickable" data-cat="game"
+         onclick="location.href='Játék Kritika/kritika-gow2018.html'">
+  <div class="reviewTop">
+    <div>
+      <div class="reviewName">God of War (2018) — Ghris-only</div>
+      <div class="reviewMeta">Story: 10/10 • Játékmenet: 10/10 • Világ: 10/10</div>
+    </div>
+    <span class="rating">10 <small>/10</small></span>
+  </div>
+
+  <p class="muted">
+    Az a ritka játék, amit nem csak végigviszel — hanem <b>visszajársz</b> befejezni is. Mimir sztorijai, apa–fia kapcsolat,
+    Valkűrök… minden a helyén van.
+  </p>
+
+  <div class="badgeRow">
+    <span class="badge">Ghris: 10/10</span>
+    <span class="badge">Story: 10/10</span>
+    <span class="badge">Gameplay: 10/10</span>
+    <span class="badge">Világ: 10/10</span>
+  </div>
+</article>
+
+<article class="card miniCard review clickable" data-cat="film"
+         onclick="location.href='Sorozat Kritika/kritika-darry.html'">
+  <div class="reviewTop">
+    <div>
+      <div class="reviewName">It: Welcome To Derry — Ádám-only</div>
+      <div class="reviewMeta">Hangulat: 10/10 • Horror: 8/10 • Story: 7/10</div>
+    </div>
+    <span class="rating">9.0 <small>/10</small></span>
+  </div>
+
+  <p class="muted">
+    Fullos horror nem csak jumpscare, hanem rendesen szorongsz. Pennywise/AZ meg 10/10, konkrétan viszi a show-t.
+  </p>
+
+  <div class="badgeRow">
+    <span class="badge">Hangulat: 10/10</span>
+    <span class="badge">Horror: 8/10</span>
+    <span class="badge">Story: 7/10</span>
+    <span class="badge">Karakterek: 8/10</span>
+    <span class="badge">Pennywise/AZ: 10/10</span>
+    <span class="badge">Össz: 9/10</span>
+  </div>
+</article>
+
+    </div>
+
+    </section>
+
+    <footer class="footer">
+      <div class="hr"></div>
+      <div class="row" style="justify-content:space-between;">
+        <span>© <span id="year"></span> Kritika &amp; Kávé</span>
+        <span class="muted">Made with caffeine ☕</span>
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+</body>
+</html>

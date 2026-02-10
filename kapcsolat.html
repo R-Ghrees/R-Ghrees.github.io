@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kritika & Kávé — Kapcsolat</title>
+  <meta name="description" content="Ajánlj filmet/kaját/játékot, amit kritizáljunk." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="site.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__logo">K</span>
+        <span>Kritika &amp; Kávé</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="index.html">Kezdő</a>
+        <a href="kritikak.html">Kritikák</a>
+        <a href="kave.html">Kávé sarok</a>
+        <a href="kapcsolat.html">Kapcsolat</a>
+      </nav>
+
+      <div class="row">
+        <button class="btn ghost menuBtn" id="menuBtn" type="button" aria-label="Menü">☰</button>
+        <a class="btn" href="kritikak.html">Kritikák</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section>
+      <div class="sectionTitle">
+        <h2>Kapcsolat</h2>
+        <p>ha ajánlanál valamit, amit kritizáljunk 😄</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card miniCard">
+          <h3>Linkek</h3>
+          <p class="muted">Ezt majd kitöltitek:</p>
+          <div class="badgeRow" style="margin-top:10px;">
+            <a class="badge" href="#" onclick="return false;">Instagram</a>
+            <a class="badge" href="#" onclick="return false;">TikTok</a>
+            <a class="badge" href="#" onclick="return false;">YouTube</a>
+          </div>
+          <div class="hr"></div>
+          <p class="muted">Ha éles űrlapot akarsz: Formspree / Netlify Forms.</p>
+        </div>
+
+        <form class="card miniCard" onsubmit="return fakeSend(event)">
+          <h3>Ajánlás</h3>
+          <div style="display:grid; gap:10px; margin-top:10px;">
+            <input class="input" name="name" placeholder="Neved" required />
+            <input class="input" type="email" name="email" placeholder="Email" required />
+            <textarea class="input" name="msg" placeholder="Mit nézzünk/együnk/játsszunk?" required></textarea>
+            <button class="btn" type="submit">Küldés (demo)</button>
+            <div id="toast" class="muted" style="display:none;">Elment (demo). Ha akarod, bekötjük élesre.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="hr"></div>
+      <div class="row" style="justify-content:space-between;">
+        <span>© <span id="year"></span> Kritika &amp; Kávé</span>
+        <span class="muted">Made with caffeine ☕</span>
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+</body>
+</html>
