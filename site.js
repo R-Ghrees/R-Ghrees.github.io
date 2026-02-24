@@ -141,16 +141,16 @@ if (weekListEl && newsSlideEl && newsPrev && newsNext && newsDots) {
     title: "Heti menetrend",
     subtitle: "Mi várható ezen a héten?",
     items: [
-      "Készülő: következő kaja kritika (fotó + pontok).",
-      "Sorozat kritika bővítés: It: Welcome To Derry (részletes).",
+      "Készülő: AirPods Pro 3 Kritika.",
+      "Kena Bridge of Spirits játék Kritika ",
       "Kávé Sarok: új random kombók + playlist bővítés."
     ]
   };
 
   const news = [
-    { title: "Új kaja kritika készül", text: "Most csak a borító van kint, részletes jön hamarosan.", tag: "étel" },
-    { title: "Kávé Sarok frissült", text: "Random kávé + random zene kombó megy, jöhet a finomítás.", tag: "kávé" },
-    { title: "God of War (2018)", text: "Ghris 10/10. Extra: Valkűr rész bővítése tervben.", tag: "játék" }
+    { title: "Új kaja kritika készül", text: "A Szombathelyi Guri új néven fut és mi leteszteltük.", tag: "étel" },
+    { title: "AirPdods Pro 3", text: "1 hét után vajon milyen élményei vannak Ádámnak? Megérte?", tag: "tech" },
+    { title: "Kena Bridge of Spirits", text: "Ghris maxolás után jelentkezik...", tag: "játék" }
   ];
 
   // Week chip
@@ -229,3 +229,72 @@ if (weekListEl && newsSlideEl && newsPrev && newsNext && newsDots) {
   renderNews(false);
 }
 
+(() => {
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbClose = document.getElementById('lightboxClose');
+  const links = document.querySelectorAll('a[data-lightbox]');
+
+  if(!lb || !lbImg || !lbClose || !links.length) return;
+
+  links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      lbImg.src = a.getAttribute('href');
+      lb.classList.add('show');
+      lb.setAttribute('aria-hidden','false');
+    });
+  });
+
+  const close = () => {
+    lb.classList.remove('show');
+    lb.setAttribute('aria-hidden','true');
+    lbImg.src = '';
+  };
+
+  lbClose.addEventListener('click', close);
+  lb.addEventListener('click', (e) => { if(e.target === lb) close(); });
+  window.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
+})();
+(() => {
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('imgModalImg');
+  const closeBtn = document.getElementById('imgModalClose');
+
+  if(!modal || !modalImg || !closeBtn) return;
+
+  const open = (src, alt='') => {
+    modalImg.src = src;
+    modalImg.alt = alt;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modalOpen');
+  };
+
+  const close = () => {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden','true');
+    modalImg.src = '';
+    document.body.classList.remove('modalOpen');
+  };
+
+  document.querySelectorAll('a[data-lightbox]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const img = a.querySelector('img');
+      open(a.getAttribute('href'), img?.alt || '');
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+
+  // katt a háttérre -> zár
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) close();
+  });
+
+  // ESC -> zár
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') close();
+  });
+})();
