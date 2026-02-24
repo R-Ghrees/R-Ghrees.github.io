@@ -348,3 +348,176 @@ main > .wrap{
   background: rgba(110,231,255,.35);
   border-color: rgba(110,231,255,.22);
 }
+
+.prosConsGrid{ gap:12px; }
+
+.proBox{
+  border: 1px solid rgba(34, 197, 94, .22);
+  background:
+    linear-gradient(135deg, rgba(34,197,94,.10), rgba(255,255,255,.03));
+}
+
+.conBox{
+  border: 1px solid rgba(239, 68, 68, .22);
+  background:
+    linear-gradient(135deg, rgba(239,68,68,.10), rgba(255,255,255,.03));
+}
+
+/* hogy ne tapadjon felülre a szöveg */
+.proBox p, .conBox p{ margin: 0; }
+
+.photoGrid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:10px;
+}
+
+.photoItem{
+  position:relative;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  background: rgba(255,255,255,.03);
+  display:block;
+  min-height:140px;
+}
+
+.photoItem img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.01);
+  transition: transform .18s ease, opacity .18s ease;
+  opacity:.96;
+}
+
+.photoItem:hover img{
+  transform: scale(1.04);
+  opacity:1;
+}
+
+.photoCap{
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: rgba(0,0,0,.35);
+  color: var(--text);
+  font-size:.95rem;
+  backdrop-filter: blur(8px);
+}
+
+/* elrendezés */
+.photoItem.big{ grid-column: span 12; min-height:220px; }
+.photoItem{ grid-column: span 6; min-height:140px; }
+
+/* A menü/plakát kisebb legyen */
+.photoItem.menu{ grid-column: span 6; min-height:160px; }
+
+@media (min-width: 900px){
+  .photoItem.big{ grid-column: span 7; min-height:290px; }
+  .photoItem{ grid-column: span 5; min-height:140px; }
+
+  /* Desktopon még kisebb kártya legyen a menü */
+  .photoItem.menu{ grid-column: span 4; min-height:220px; }
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(10px);
+  z-index:9999;
+  padding:18px;
+}
+.lightbox.show{ display:flex; }
+.lightbox img{
+  max-width:min(1100px, 96vw);
+  max-height:88vh;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+}
+.lightboxClose{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  cursor:pointer;
+}
+
+body.modalOpen{ overflow:hidden; }
+
+.imgModal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 9999;
+
+  /* ettől látod a kritikát mögötte, kicsit homályosan */
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+}
+
+.imgModal.show{ display:flex; }
+
+.imgModalCard{
+  position: relative;
+  width: min(860px, 92vw);
+  max-height: 78vh;
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+
+.imgModalCard img{
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 14px;
+  display:block;
+}
+
+.imgModalClose{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.35);
+  color: var(--text);
+  cursor: pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  backdrop-filter: blur(8px);
+}
+
+.imgModalClose:hover{
+  background: rgba(255,255,255,.08);
+}
