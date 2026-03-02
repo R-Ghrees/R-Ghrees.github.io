@@ -366,3 +366,146 @@ main > .wrap{
 /* hogy ne tapadjon felülre a szöveg */
 .proBox p, .conBox p{ margin: 0; }
 
+.photoGrid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap:10px;
+}
+
+.photoItem{
+  position:relative;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  background: rgba(255,255,255,.03);
+  display:block;
+  min-height:140px;
+}
+
+.photoItem img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.01);
+  transition: transform .18s ease, opacity .18s ease;
+  opacity:.96;
+}
+
+.photoItem:hover img{
+  transform: scale(1.04);
+  opacity:1;
+}
+
+.photoCap{
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: rgba(0,0,0,.35);
+  color: var(--text);
+  font-size:.95rem;
+  backdrop-filter: blur(8px);
+}
+
+/* elrendezés */
+.photoItem.big{ grid-column: span 12; min-height:220px; }
+.photoItem{ grid-column: span 6; min-height:140px; }
+
+/* A menü/plakát kisebb legyen */
+.photoItem.menu{ grid-column: span 6; min-height:160px; }
+
+@media (min-width: 900px){
+  .photoItem.big{ grid-column: span 7; min-height:290px; }
+  .photoItem{ grid-column: span 5; min-height:140px; }
+
+  /* Desktopon még kisebb kártya legyen a menü */
+  .photoItem.menu{ grid-column: span 4; min-height:220px; }
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(10px);
+  z-index:9999;
+  padding:18px;
+}
+.lightbox.show{ display:flex; }
+.lightbox img{
+  max-width:min(1100px, 96vw);
+  max-height:88vh;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+}
+.lightboxClose{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  cursor:pointer;
+}
+
+body.modalOpen{ overflow:hidden; }
+
+/* TECH kártya (borító a kritikák listában) */
+.techCard{
+  border: 1px solid rgba(34, 197, 94, .22);
+  background:
+    radial-gradient(700px 280px at 15% 15%, rgba(34,197,94,.12), transparent 60%),
+    radial-gradient(700px 280px at 90% 30%, rgba(245,158,11,.10), transparent 55%),
+    rgba(16,24,38,.72);
+}
+
+/* TECH oldal téma (külön háttér + accent) */
+.techPage{
+  --accent:#22c55e;   /* zöld */
+  --accent2:#f59e0b;  /* narancs */
+  /* picit “techybb” háttér */
+  background:
+    radial-gradient(900px 520px at 12% 14%, rgba(34,197,94,.12), transparent 60%),
+    radial-gradient(800px 520px at 88% 18%, rgba(245,158,11,.10), transparent 55%),
+    radial-gradient(900px 700px at 50% 120%, rgba(34,197,94,.08), transparent 55%),
+    var(--bg);
+}
+
+/* KENA borító (kritikák listában) */
+.kenaCard{
+  border: 1px solid rgba(168, 85, 247, .22);
+  background:
+    radial-gradient(800px 320px at 14% 18%, rgba(168,85,247,.14), transparent 60%),
+    radial-gradient(800px 320px at 88% 28%, rgba(236,72,153,.10), transparent 55%),
+    rgba(16,24,38,.72);
+}
+
+/* KENA oldal téma (külön háttér + lilás accent) */
+.kenaPage{
+  --accent:#a855f7;   /* lila */
+  --accent2:#ec4899;  /* pinkes */
+  background:
+    radial-gradient(900px 520px at 12% 14%, rgba(168,85,247,.14), transparent 60%),
+    radial-gradient(800px 520px at 88% 18%, rgba(236,72,153,.10), transparent 55%),
+    radial-gradient(900px 700px at 50% 120%, rgba(168,85,247,.08), transparent 55%),
+    var(--bg);
+}
+
+/* szöveg “pre-wrap” módban */
+.reviewText{
+  white-space: pre-wrap;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-family: inherit;
+}

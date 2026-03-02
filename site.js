@@ -44,7 +44,7 @@
     };
 
     pills.forEach(p => p.addEventListener('click', () => setFilter(p.dataset.filter)));
-    setFilter(['all','film','food','game'].includes(initial) ? initial : 'all');
+    setFilter(['all','film','food','game','tech'].includes(initial) ? initial : 'all');
   }
 
 
@@ -136,21 +136,21 @@ function getISOWeek(date = new Date()){
 }
 
 if (weekListEl && newsSlideEl && newsPrev && newsNext && newsDots) {
-  // 👉 IDE ÍROD HETENTE (1 perc frissítés)
+  // 👉 MENETREND (1 perc frissítés)
   const weekly = {
-    title: "Heti menetrend",
-    subtitle: "Mi várható ezen a héten?",
+    title: "Menetrend",
+    subtitle: "Mi várható?",
     items: [
-      "Készülő: AirPods Pro 3 Kritika.",
-      "Kena Bridge of Spirits játék Kritika ",
+      "VampYr kritika",
+      "ASUS ROG Swift OLED PG32UCDP teszt",
       "Kávé Sarok: új random kombók + playlist bővítés."
     ]
   };
 
   const news = [
-    { title: "Új kaja kritika készül", text: "A Szombathelyi Guri új néven fut és mi leteszteltük.", tag: "étel" },
+    { title: "Új kaja kritika készült", text: "A Szombathelyi Guri új néven fut és mi leteszteltük.", tag: "étel" },
     { title: "AirPdods Pro 3", text: "1 hét után vajon milyen élményei vannak Ádámnak? Megérte?", tag: "tech" },
-    { title: "Kena Bridge of Spirits", text: "Ghris maxolás után jelentkezik...", tag: "játék" }
+    { title: "VampYr", text: "Ghris új célpontja vajon kimaxolja vagy félbe hagyja?", tag: "játék" }
   ];
 
   // Week chip
