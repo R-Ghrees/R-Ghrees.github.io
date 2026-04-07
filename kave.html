@@ -3,104 +3,150 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kritika & Kávé — Kávé sarok</title>
-   <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
-  <meta name="description" content="Chill Kávé Sarok: receptek, ajánlók, playlist." />
+  <title>Kritika & Kávé - Kávé sarok</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
+  <meta name="description" content="Kávé sarok receptekkel, hangulattal és egy napi kávé ajánlóval." />
   <link rel="stylesheet" href="styles.css" />
   <script src="site.js" defer></script>
 </head>
 <body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar__inner">
+        <a class="brand" href="index.html">
+          <span class="brand__logo">K</span>
+          <span>Kritika &amp; Kávé</span>
+        </a>
 
-<header class="topbar">
-  <div class="wrap">
-    <div class="topbar__inner">
-      <a class="brand" href="index.html">
-        <span class="brand__logo">K</span>
-        <span>Kritika &amp; Kávé</span>
-      </a>
+        <nav class="nav" id="nav">
+          <a href="index.html">Kezdőlap</a>
+          <a href="kritikak.html">Kritikák</a>
+          <a href="kave.html">Kávé sarok</a>
+          <a href="kapcsolat.html">Kapcsolat</a>
+        </nav>
 
-      <nav class="nav" id="nav">
-        <a href="index.html">Kezdő</a>
-        <a href="kritikak.html">Kritikák</a>
-        <a href="kave.html">Kávé sarok</a>
-        <a href="kapcsolat.html">Kapcsolat</a>
-      </nav>
-
-      <div class="row">
-        <button class="btn ghost menuBtn" id="menuBtn" type="button" aria-label="Menü">☰</button>
-        <a class="btn" href="kritikak.html">Kritikák</a>
+        <div class="row">
+          <button class="btn ghost menuBtn" id="menuBtn" type="button" aria-label="Menü">☰</button>
+          <a class="btn" href="kritikak.html">Kritikák</a>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <div class="wrap">
-    <section class="hero">
-      <div class="hero__grid">
-        <div class="card heroCard">
-          <span class="kicker"><span class="dot"></span> chill • kávé • playlist</span>
-          <h1>Kávé Sarok ☕</h1>
-          <p class="lead">Itt nincs rohanás: receptek, ajánlók, és a “na ez most jól esik” hangulat.</p>
-          <div class="ctaRow">
-            <a class="btn" href="#" id="coffeeRecBtn">Ajánlj kávét</a>
-            <a class="btn ghost" href="index.html">Vissza a kezdőre</a>
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero__grid">
+          <div class="card heroCard heroCard--warm">
+            <div class="coffeeHero">
+              <span class="kicker"><span class="dot"></span> chill • kávé • ajánló • lassabb tempó</span>
+
+              <div class="coffeeDisplay" aria-labelledby="coffeeDisplayTitle">
+                <div class="coffeeDisplay__glow" aria-hidden="true"></div>
+                <p class="coffeeDisplay__eyebrow">Kávé sarok hangulat</p>
+                <h1 id="coffeeDisplayTitle" class="coffeeDisplay__wordmark" aria-label="Coffee">CO:FF:EE</h1>
+
+                <div class="coffeeDisplay__meta">
+                  <div class="coffeeDisplay__clockPanel">
+                    <div class="coffeeDisplay__label">Élő idő</div>
+                    <div id="coffeeClock" class="coffeeDisplay__clock" aria-live="polite">00:00:00</div>
+                  </div>
+
+                  <p id="coffeeClockMessage" class="coffeeDisplay__message">
+                    Úgy nézem, kávé idő van.
+                  </p>
+                </div>
+              </div>
+
+              <div class="ctaRow">
+                <a class="btn ghost" href="index.html">Vissza a kezdőlapra</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="card sideCard sideCard--soft">
+            <div class="sideTop">
+              <div>
+                <div class="muted">Napi ajánló</div>
+                <div class="sideTitle">Mai kávé + soundtrack</div>
+                <div class="muted">Az adott napon mindig ugyanaz a kávé és playlist jelenik meg.</div>
+              </div>
+            </div>
+
+            <section id="coffeeRecOut" class="coffeeFeature" aria-live="polite">
+              <div class="coffeeFeature__top">
+                <div>
+                  <div class="eyebrow">Mai kávé ajánlat</div>
+                  <h3 id="coffeeName" class="coffeeFeature__title">...</h3>
+                </div>
+                <div id="coffeeDayLabel" class="coffeeFeature__day"></div>
+              </div>
+
+              <p id="coffeeDesc" class="coffeeFeature__desc"></p>
+
+              <div class="coffeeFeature__panel">
+                <div class="coffeeFeature__panelHead">
+                  <span class="muted">4 ajánlott zene hozzá</span>
+                </div>
+                <ul id="coffeeTracks" class="coffeeTracks"></ul>
+              </div>
+
+              <div class="coffeeFeature__closing">
+                <p id="coffeeClosing">
+                  Mert nem minden kávé ugyanaz, és nem minden hangulat kér ugyanazt a zenét.
+                  Van, amikor egy latte mellé elég egy puhább dallam, és van, amikor egy tripla espresso csak akkor üt igazán,
+                  ha Rammstein vagy Metallica szól mellé.
+                </p>
+              </div>
+            </section>
+
+            <section id="coffeeFactBlock" class="coffeeFact" aria-live="polite">
+              <div class="coffeeFact__head">
+                <div>
+                  <div class="eyebrow">Mai kávés érdekesség</div>
+                  <h3 class="coffeeFact__title">Napi hangulat a csésze mellé</h3>
+                </div>
+                <div id="coffeeFactDayLabel" class="coffeeFact__day"></div>
+              </div>
+              <p id="coffeeFactText" class="coffeeFact__text"></p>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section>
+        <div class="sectionTitle">
+          <h2>Mi van itt?</h2>
+          <p>kicsi, de karakteres tér</p>
+        </div>
+
+        <div class="grid3">
+          <div class="card miniCard">
+            <div class="eyebrow">Receptek</div>
+            <h3>Gyors kávéötletek</h3>
+            <p>Espresso tonic, iced latte, flat white, vagy bármi, ami épp jól esik egy hosszabb nap közben.</p>
+          </div>
+          <div class="card miniCard">
+            <div class="eyebrow">Ajánlók</div>
+            <h3>Mit vennénk újra?</h3>
+            <p>Rövid benyomások arról, hogy melyik kávé működött igazán, és melyik inkább egyszeri próbálkozás maradt.</p>
+          </div>
+          <div class="card miniCard">
+            <div class="eyebrow">Playlist</div>
+            <h3>Zene a hangulathoz</h3>
+            <p>A napi ajánló mögött ugyanaz az ötlet van: egy ital mellé járjon egy passzoló track is.</p>
           </div>
         </div>
+      </section>
 
-        <aside class="card sideCard">
-          <div class="sideTop">
-            <div>
-              <div id="coffeeRecOut" class="card miniCard" style="display:none; margin-top:14px;">
-  <h3 style="margin-top:0;">Mai kombó</h3>
-
-  <div class="badgeRow">
-    <span class="badge" id="coffeeName"></span>
-    <span class="badge" id="coffeeVibe"></span>
-  </div>
-
-  <p class="muted" id="coffeeDesc" style="margin-top:10px;"></p>
-
-  <div class="hr"></div>
-
-  <div class="row" style="justify-content:space-between;">
-    <span class="muted">Zene hozzá:</span>
-    <a class="badge" id="songLink" href="#" target="_blank" rel="noopener">🎧</a>
-  </div>
-
-    </section>
-
-    <section>
-      <div class="sectionTitle">
-        <h2>Mi van itt?</h2>
-        <p>kicsi, de hangulatos</p>
-      </div>
-
-      <div class="grid3">
-        <div class="card miniCard">
-          <h3>Gyors receptek</h3>
-          <p>Espresso tonic, jegeskávé, „túlélő” műszak-kávé. Arányok jöhetnek ide.</p>
+      <footer class="footer">
+        <div class="hr"></div>
+        <div class="row" style="justify-content:space-between;">
+          <span>© <span id="year"></span> Kritika &amp; Kávé</span>
+          <span class="muted">Lassabb oldal, ugyanazzal a karakterrel.</span>
         </div>
-        <div class="card miniCard">
-          <h3>Kávé ajánlók</h3>
-          <p>Mit próbáltunk, milyen volt, mennyire üt, és vennénk-e újra.</p>
-        </div>
-        <div class="card miniCard">
-          <h3>Chill playlist</h3>
-          <p>Spotify/YouTube beágyazás később, hogy tényleg sarok legyen.</p>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="hr"></div>
-      <div class="row" style="justify-content:space-between;">
-        <span>© <span id="year"></span> Kritika &amp; Kávé</span>
-        <span class="muted">Made with caffeine ☕</span>
-      </div>
-    </footer>
-  </div>
-</main>
-
+      </footer>
+    </div>
+  </main>
 </body>
 </html>
